@@ -4,8 +4,8 @@
 
 <form method="POST" action="">
     {% csrf_token %}
-    <p>Are you sure you want to delete "{{obj}}"?</p>
-
+    <p>Adjust the field below to edit:</p>
+    <input type="text" name="content" value="{{obj.content}}" placeholder="Enter your content here..." />
     <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
     <input type="submit" value="Confirm" />
 </form>

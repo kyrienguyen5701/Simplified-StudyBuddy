@@ -1,5 +1,3 @@
-<!-- All credits to https://github.com/divanov11/StudyBud/blob/master/templates/main.html -->
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -16,13 +14,14 @@
 
     {% include 'navbar.html' %}
 
-    <!-- {% if messages %}
+    <!-- any messages (e.g user not found) -->
+    {% if messages %}
     <ul class="messages">
         {% for message in messages %}
         <li>{{ message }}</li>
         {% endfor %}
     </ul>
-    {% endif %} -->
+    {% endif %}
 
     {% block content %}
 
