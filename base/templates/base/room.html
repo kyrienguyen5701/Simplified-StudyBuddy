@@ -20,11 +20,11 @@
             {% for msg in msgs %}
             <div>
                 {% if request.user == msg.user %}
-                <a href="{% url 'edit-msg' msg.id %}">Edit</a>
-                <a href="{% url 'delete-msg' msg.id %}">Delete</a>
+                <a href="{% url 'edit-message' msg.id %}">Edit</a>
+                <a href="{% url 'delete-message' msg.id %}">Delete</a>
                 {% endif %}
                 <small>@{{msg.user}} {{msg.created|timesince}} ago </small>
-                <p>{{msg.body}}</p>
+                <p>{{msg.content}}</p>
                 <hr>
             </div>
             {% endfor %}
@@ -32,10 +32,10 @@
 
 
         {% if request.user.is_authenticated %}
-        <div class="comment-form">
+        <div>
             <form method="POST" action="">
                 {% csrf_token %}
-                <input type="text" name="body" placeholder="Write you message here..." />
+                <input type="text" name="content" placeholder="Write you message here..." />
             </form>
         </div>
         {% endif %}
