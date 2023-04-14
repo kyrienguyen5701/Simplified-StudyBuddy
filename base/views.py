@@ -130,17 +130,17 @@ def login_page(request):
 
   if request.method == 'POST':
     # get info
-    username = request.POST.get('username').lower()
+    email = request.POST.get('email').lower()
     password = request.POST.get('password')
     
     # check if user exists
     try:
-      user = User.objects.get(username=username)
+      user = User.objects.get(email=email)
     except:
       messages.error(request, 'User not found!')
     
     # authenticate and login
-    user = authenticate(request, username=username, password=password)
+    user = authenticate(request, email=email, password=password)
     if user is not None:
       login(request, user)
       return redirect('home')
